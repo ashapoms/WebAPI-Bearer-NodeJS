@@ -23,7 +23,7 @@ exports.creds = {
   issuer: null,
 
   // Optional, default value is clientID
-  audience: null,
+  audience: 'https://graph.windows.net', //null,
 
   // Optional. Default value is false.
   // Set to true if you accept access_token whose `aud` claim contains multiple values.
