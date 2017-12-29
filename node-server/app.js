@@ -45,7 +45,7 @@ var options = {
     policyName: config.creds.policyName,
     allowMultiAudiencesInToken: config.creds.allowMultiAudiencesInToken,
     audience: config.creds.audience,
-    loggingLevel: config.creds.loggingLevel,
+    loggingLevel: config.creds.loggingLevel
 };
 
 // current owner
@@ -215,7 +215,7 @@ server.use(restify.requestLogger());
 server.use(restify.throttle({
     burst: 10,
     rate: 5,
-    ip: true,
+    ip: true
 }));
 
 // Use the common stuff you probably want
@@ -260,6 +260,8 @@ passport.use(bearerStrategy);
 /*
 **/
 
+/*
+// Handlers with protection
 server.get('/api/tasks', passport.authenticate('oauth-bearer', {
     session: false
 }), listTasks);
@@ -269,6 +271,15 @@ server.post('/api/tasks', passport.authenticate('oauth-bearer', {
 server.del('/api/tasks', passport.authenticate('oauth-bearer', {
     session: false
 }), removeTask);
+*/
+
+
+// Handlers without protection
+server.get('/api/tasks', listTasks);
+server.post('/api/tasks', createTask);
+server.del('/api/tasks', removeTask);
+
+
 
 // Register a default '/' handler
 
