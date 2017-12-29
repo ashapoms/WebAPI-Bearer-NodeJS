@@ -289,7 +289,7 @@ server.del('/api/tasks', removeTask);
 server.get('/', function root(req, res, next) {
     var routes = [
         'GET     /',
-        'POST    /api/tasks',
+        'POST    /api/tasks/:owner/:task',
         'GET     /api/tasks/:owner',
         'DELETE  /api/tasks'
     ];
