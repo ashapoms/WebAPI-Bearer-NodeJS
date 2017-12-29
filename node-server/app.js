@@ -167,7 +167,7 @@ function listTasks(req, res, next) {
             log.warn(err, "There is no tasks in the database. Add one!");
         }
 
-        if (!owner) {
+        if (!req.params.owner) {
             log.warn(err, "You did not pass an owner when listing tasks.");
         } else {
 
