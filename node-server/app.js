@@ -279,7 +279,7 @@ server.del('/api/tasks', passport.authenticate('oauth-bearer', {
 
 // Handlers without protection
 server.get('/api/tasks/:owner', listTasks);
-server.post('/api/tasks', createTask);
+server.post('/api/tasks/:owner/:task', createTask);
 server.del('/api/tasks', removeTask);
 
 
