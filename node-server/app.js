@@ -260,7 +260,7 @@ passport.use(bearerStrategy);
 /*
 **/
 
-
+/*
 // Handlers with protection
 server.get('/api/tasks', passport.authenticate('oauth-bearer', {
     session: false
@@ -271,15 +271,15 @@ server.post('/api/tasks', passport.authenticate('oauth-bearer', {
 server.del('/api/tasks', passport.authenticate('oauth-bearer', {
     session: false
 }), removeTask);
+*/
 
 
 
-/*
 // Handlers without protection
 server.get('/api/tasks', listTasks);
 server.post('/api/tasks', createTask);
 server.del('/api/tasks', removeTask);
-*/
+
 
 
 // Register a default '/' handler
