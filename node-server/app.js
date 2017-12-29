@@ -53,7 +53,7 @@ var owner = null;
 
 // Our logger
 var log = bunyan.createLogger({
-    name: 'Windows Azure Active Directory Sample'
+    name: 'Azure AD protected Node.js REST'
 });
 
 // MongoDB setup
@@ -260,26 +260,26 @@ passport.use(bearerStrategy);
 /*
 **/
 
-/*
+
 // Handlers with protection
-server.get('/api/tasks', passport.authenticate('oauth-bearer', {
+server.get('/api/tasks/:owner', passport.authenticate('oauth-bearer', {
     session: false
 }), listTasks);
-server.post('/api/tasks', passport.authenticate('oauth-bearer', {
+server.post('/api/tasks/:owner/:Text', passport.authenticate('oauth-bearer', {
     session: false
 }), createTask);
-server.del('/api/tasks', passport.authenticate('oauth-bearer', {
+server.del('/api/tasks/:owner/:Text', passport.authenticate('oauth-bearer', {
     session: false
 }), removeTask);
-*/
 
 
 
+/*
 // Handlers without protection
 server.get('/api/tasks/:owner', listTasks);
 server.post('/api/tasks/:owner/:Text', createTask);
 server.del('/api/tasks/:owner/:Text', removeTask);
-
+*/
 
 
 // Register a default '/' handler
