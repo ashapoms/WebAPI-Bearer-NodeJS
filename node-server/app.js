@@ -103,7 +103,6 @@ function createTask(req, res, next) {
         return;
     }
 
-    // _task.owner = owner;
     _task.owner = req.params.owner;
     _task.Text = req.params.Text;
     _task.date = new Date();
@@ -141,7 +140,7 @@ function removeTask(req, res, next) {
     });
 }
 
-/// Simple returns the list of TODOs that were loaded.
+// Get a specific task based on name
 function listTasks(req, res, next) {
     // Resitify currently has a bug which doesn't allow you to set default headers
     // This headers comply with CORS and allow us to mongodbServer our response to any origin
@@ -152,7 +151,6 @@ function listTasks(req, res, next) {
     log.info("listTasks was called for: ", req.params.owner);
 
     Task.find({
-        // owner: owner
         owner: req.params.owner
     }).limit(20).sort('date').exec(function(err, data) {
 
