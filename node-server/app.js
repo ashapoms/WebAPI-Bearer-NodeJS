@@ -277,7 +277,7 @@ server.del('/api/tasks', passport.authenticate('oauth-bearer', {
 
 
 // Handlers without protection
-server.get('/api/tasks', listTasks);
+server.get('/api/tasks/:owner', listTasks);
 server.post('/api/tasks', createTask);
 server.del('/api/tasks', removeTask);
 
@@ -289,7 +289,7 @@ server.get('/', function root(req, res, next) {
     var routes = [
         'GET     /',
         'POST    /api/tasks',
-        'GET     /api/tasks',
+        'GET     /api/tasks/:owner',
         'DELETE  /api/tasks'
     ];
     res.send(200, routes);
