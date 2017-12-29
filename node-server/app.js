@@ -149,7 +149,7 @@ function listTasks(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
-    log.info("listTasks was called for: ", owner);
+    log.info("listTasks was called for: ", req.params.owner);
 
     Task.find({
         // owner: owner
