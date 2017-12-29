@@ -125,7 +125,7 @@ function createTask(req, res, next) {
 function removeTask(req, res, next) {
 
     Task.remove({
-        task: req.params.Text,
+        Text: req.params.Text,
         owner: req.params.owner
     }, function(err) {
         if (err) {
