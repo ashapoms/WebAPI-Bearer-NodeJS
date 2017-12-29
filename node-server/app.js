@@ -126,7 +126,7 @@ function removeTask(req, res, next) {
 
     Task.remove({
         task: req.params.Text,
-        owner: owner.params.owner
+        owner: req.params.owner
     }, function(err) {
         if (err) {
             req.log.warn(err,
