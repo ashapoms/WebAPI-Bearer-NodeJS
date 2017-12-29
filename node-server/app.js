@@ -152,8 +152,8 @@ function listTasks(req, res, next) {
     log.info("listTasks was called for: ", owner);
 
     Task.find({
-        // owner: owner
-        owner: rec.params.owner
+        owner: owner
+        // owner: rec.params.owner
     }).limit(20).sort('date').exec(function(err, data) {
 
         if (err)
