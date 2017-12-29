@@ -103,7 +103,8 @@ function createTask(req, res, next) {
         return;
     }
 
-    _task.owner = owner;
+    // _task.owner = owner;
+    _task.owner = req.params.owner;
     _task.Text = req.params.Text;
     _task.date = new Date();
 
