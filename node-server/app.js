@@ -126,7 +126,7 @@ function removeTask(req, res, next) {
 
     Task.remove({
         task: req.params.Text,
-        owner: owner
+        owner: owner.params.owner
     }, function(err) {
         if (err) {
             req.log.warn(err,
@@ -280,7 +280,7 @@ server.del('/api/tasks', passport.authenticate('oauth-bearer', {
 // Handlers without protection
 server.get('/api/tasks/:owner', listTasks);
 server.post('/api/tasks/:owner/:Text', createTask);
-server.del('/api/tasks', removeTask);
+server.del('/api/tasks/:owner/:Text', removeTask);
 
 
 
@@ -291,7 +291,7 @@ server.get('/', function root(req, res, next) {
         'GET     /',
         'POST    /api/tasks/:owner/:Text',
         'GET     /api/tasks/:owner',
-        'DELETE  /api/tasks'
+        'DELETE  /api/tasks/:owner/:Text'
     ];
     res.send(200, routes);
     next();
