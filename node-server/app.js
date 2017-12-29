@@ -53,7 +53,7 @@ var owner = null;
 
 // Our logger
 var log = bunyan.createLogger({
-    name: 'Azure AD protected Node.js REST'
+    name: 'Node.js REST protected by Azure AD'
 });
 
 // MongoDB setup
